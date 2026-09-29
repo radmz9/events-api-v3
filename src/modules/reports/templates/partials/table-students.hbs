@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Carrera</th>
+      <th style="text-align: center;">Generación</th>
+    </tr>
+  </thead>
+  <tbody class="font-light">
+    {{#each data}}
+    <tr>
+      <td>{{codigo}}</td>
+      <td>{{nombre}}</td>
+      <td>{{area}}</td>
+      <td style="text-align: center;">{{calendario}}</td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

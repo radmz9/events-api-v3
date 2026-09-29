@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head>
+    {{>styles fonts=fonts }}
+</head>
+<body>
+    <div class="headerContent">
+        <section id="left">
+            <img src="{{leftLogo}}" class="logoLeft" alt="Logo Izquierdo">
+        </section>
+        <section class="eventInfo">
+            <p>{{data.codigo}}</p>
+            <p>{{data.nombre}}</p>
+            <p>{{data.area}}</p>
+        </section>
+        <section id="right">
+            <img src="{{rightLogo}}" class="logoRight" alt="Logo Derecho">
+        </section>
+    </div>
+    {{> table-events-user events=data.eventsSummary.events}}
+    {{> user-summary-stats totalHours=data.eventsSummary.totalHours total=data.eventsSummary.total userName=data.areaResponsable userRole=data.rolAreaResponsable userArea=data.area}}
+</body>
+</html>

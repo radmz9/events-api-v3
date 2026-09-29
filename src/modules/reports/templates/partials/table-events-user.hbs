@@ -1,0 +1,22 @@
+<table>
+    <thead>
+        <tr style="background-color:lightgray;">
+            <th>Tipo</th>
+            <th>Evento</th>
+            <th>&Aacute;rea</th>
+            <th>Fecha</th>
+            <th>Horas</th>
+        </tr>
+    </thead>
+    <tbody class="font-light">
+        {{#each events}}
+            <tr>
+                <td>{{tipo}}</td>
+                <td>{{nombre}}</td>
+                <td>{{area}}</td>
+                <td>{{fecha}}</td>
+                <td style="text-align: center;">{{duracion}}</td>
+            </tr>
+        {{/each}}
+    </tbody>
+</table>

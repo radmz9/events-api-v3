@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+    {{> styles fonts=fonts}}
+</head>
+<body>
+    <div class="headerContent">
+        <section id="left">
+            <img src="{{rightLogo}}" alt="Logo Izquierdo" class="logoRight">
+        </section>
+        <section id="right">
+            <img src="{{leftLogo}}" alt="Logo Derecho" class="logoLeft">
+        </section>
+    </div>
+    <h1 class="qr-title">{{data.tipo}}</h1>
+
+    <h2 class="qr-event-title">
+        {{data.nombre}}
+    </h2>
+
+    <h3 class="qr-info">{{data.encargado}}: {{data.responsable}}</h3>
+
+    <h3 class="qr-info">Fecha: {{data.fecha}} </h3>
+    <h3 class="qr-info">Hora de inicio: {{data.hora}} horas</h3>
+
+    <div class="qr-frame">
+        <img src="{{qrCode}}" alt="qrCode">
+    </div>
+    <br />
+    <div class="qr-footer">
+        <h1>Registra tu asistencia</h1>
+        <h4>con tu código de estudiante o trabajador.</h4>
+    </div>
+
+</body>
+</html>

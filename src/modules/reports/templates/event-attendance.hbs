@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {{> styles fonts=fonts}}
+    </head>
+    <body>
+        <div class="headerContent">
+            <section id="left">
+                <img src="{{leftLogo}}" class="logoLeft" alt="Logo Izquierdo">
+            </section>
+            <section class="eventInfo">
+                <p>{{event.tipo}}: {{event.nombre}}</p>
+                <p>ENCARGADO: {{event.responsable}}</p>
+                <p>{{ event.lugar }} | {{event.fecha}}</p>
+            </section>
+            <section id="right">
+                <img src="{{rightLogo}}" class="logoRight" alt="Logo Derecho">
+            </section>
+        </div>
+        {{#if internals.Alumno.length }}
+            <p class="section-title">ALUMNOS</p>
+            {{> table-students data=internals.Alumno }}
+        {{/if}}
+
+        {{#if internals.Egresado.length }}
+            <div class="report-section">
+                <p class="section-title">EGRESADOS</p>
+                {{> table-students data=internals.Egresado }}
+            </div>
+        {{/if}}
+
+        {{#if internals.Profesor.length }}
+            <div class="report-section">
+                <p class="section-title">PROFESORES</p>
+                {{> table-staff data=internals.Profesor label="Departamento" }}
+            </div>
+        {{/if}}
+
+        {{#if internals.Administrativo.length }}
+            <div class="report-section">
+                <p class="section-title">ADMINISTRATIVOS</p>
+                {{> table-staff data=internals.Administrativo label="Área" }}
+            </div>
+        {{/if}}
+
+        {{#if externals.length }}
+            <div class="report-section">
+                <p class="section-title">EXTERNOS</p>
+                {{> table-outsiders data=externals }}
+            </div>
+        {{/if}}
+
+        {{> summary-table stats=stats total=total eventOwner=event.createdBy rolAdminUser=event.rolAdminUser eventArea=event.area }}
+    </body>
+</html>

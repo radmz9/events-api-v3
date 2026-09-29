@@ -1,0 +1,25 @@
+<div class="report-footer-block">
+    <div class="summary-box">
+        <table class="table-summary">
+            <p class="section-title">ASISTENCIA</p>
+            {{#each stats}}
+                <tr>
+                    <td><strong style="text-transform: uppercase;">{{label}}</strong></td>
+                    <td style="text-align: right;">{{value}}</td>
+                </tr>
+            {{/each}}
+            <tr style="background-color:lightgray; font-weight: bold;">
+                <td>TOTAL</td>
+                <td style="text-align: right;">{{total}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="signature-wrapper">
+        <div class="signature-line"></div>
+        <p class="signature-label" style="text-transform: uppercase;">{{rolAdminUser}}</p>
+        <p class="signature-name">{{eventOwner}}</p>
+        <p class="signature-label">{{eventArea}}</p>
+    </div>
+
+</div>
