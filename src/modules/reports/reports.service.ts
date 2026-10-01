@@ -103,7 +103,7 @@ export class ReportsService implements OnModuleInit, OnModuleDestroy {
                 data
             });
 
-            await page.setContent(finalHtml, { waitUntil: 'networkidle0' });
+            await page.setContent(finalHtml, { waitUntil: 'domcontentloaded' });
             const pdf = await page.pdf({
                 format: 'A4',
                 landscape: true,
@@ -176,7 +176,7 @@ export class ReportsService implements OnModuleInit, OnModuleDestroy {
                 data
             });
 
-            await page.setContent(finalHtml, { waitUntil: 'networkidle0' });
+            await page.setContent(finalHtml, { waitUntil: 'domcontentloaded' });
 
             const pdf = await page.pdf({
                 format: 'A4',
