@@ -51,6 +51,14 @@ export class EventsController {
         return this.eventsService.validateEventIsActive(dto);
     }
 
+    @Get('/:eventId/isActive')
+    @Public()
+    async generateEventToken(
+        @Param('eventId', IntParamPipe) eventId: number
+    ){
+        return this.eventsService.validateEventIsStillActive(eventId)
+    }
+
     @Get('/public/details')
     @Public()
     @UseGuards(EventTokenGuard)

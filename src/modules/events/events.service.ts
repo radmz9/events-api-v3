@@ -139,19 +139,34 @@ export class EventsService extends BaseService<EventEntity>{
         }
     }
 
+    private generateEventToken(eventId: number): string{
+        const token = this.jwtService.sign({ event: eventId }, {
+            secret: process.env.JWT_EVENT_SECRET,
+            expiresIn: '1h'
+        });
+        return token
+    }
+
     async validateEventIsActive(dto: ValidateEventKeyDto): Promise<{ event_token: string }>{
         const event = await this.validateExists({ clave: dto.eventKey }, 'Event');
         if(!event.isActive){
             throw new BadRequestException({ eventKey: `El evento está inactivo` })
         }
-
-        const event_token = this.jwtService.sign({event: event.id}, {
-            secret: process.env.JWT_EVENT_SECRET,
-            expiresIn: '1h'
-        })
+        const event_token = this.generateEventToken(event.id);
         return { 
             event_token 
         };
+    }
+
+    async validateEventIsStillActive(eventId: number): Promise<{ event_token: string }>{
+        const event = await this.validateExists({ id: eventId }, 'Event');
+        if(!event.isActive){
+            throw new BadRequestException({ eventId: 'El evento esta inactivo' });
+        }
+        const event_token = this.generateEventToken(eventId);
+        return {
+            event_token
+        }
     }
 
     async getPublicInfoEvent(eventId: number): Promise<PublicEventResDto>{

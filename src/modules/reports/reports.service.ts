@@ -153,8 +153,9 @@ export class ReportsService implements OnModuleInit, OnModuleDestroy {
         }
         try {
             await this.getPartialFiles();
-            const fakeURL = `http://localhost:5173/home/registros/${event.id}`;
-            const qrCode = await this.generateQr(fakeURL)
+            const link = process.env.URL_ORIGIN;
+            const frontURL = `${link}/evento/registros/qr/${event.id}`;
+            const qrCode = await this.generateQr(frontURL)
 
             const templatePath = path.join(process.cwd(), 'src/modules/reports/templates/event-qr.hbs');
 

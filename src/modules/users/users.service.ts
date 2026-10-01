@@ -60,7 +60,7 @@ export class UsersService extends BaseService<UserEntity> {
                 },
                 createdAt: true      
             },
-            order: { createdAt: 'ASC' },
+            order: { createdAt: 'DESC' },
             relations: {
                 evento: {
                     lugar: true,
